@@ -5,7 +5,7 @@ on:
       - hcloud-test
 
 project:
-    id: 9
+    id: 17
     name: hcloud-test
 
 services:
