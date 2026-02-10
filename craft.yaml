@@ -1,6 +1,6 @@
 ---
 services:
-  - name: hcc-example
+  - name: craft-cli-demo
     type: container
     build:
       repo: https://github.com/huma-engineering/hcloud-test
@@ -8,6 +8,6 @@ services:
       dockerfile: Dockerfile
       context: .
     ingress:
-      host: cli-test-2.sbx.huma.com
+      host: craft-cli-demo.sbx.huma.com
       paths: ["/"]
       port: 8000
