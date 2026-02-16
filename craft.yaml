@@ -1,13 +1,17 @@
 ---
+workspace:
+  id: 45
+  name: blueprint test
+
 services:
-  - name: craft-cli-demo
+  - name: fastapi-example
     type: container
     build:
-      repo: https://github.com/huma-engineering/hcloud-test
+      repo: https://github.com/huma-engineering/fastapi-example
       branch: main
       dockerfile: Dockerfile
       context: .
     ingress:
-      host: craft-cli-demo.sbx.huma.com
+      host: fastapi-example.sbx.huma.com
       paths: ["/"]
       port: 8000
