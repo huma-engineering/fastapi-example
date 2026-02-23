@@ -10,6 +10,8 @@ services:
   - name: fastapi-example
     type: container
     build:
+      repo: https://github.com/huma-engineering/fastapi-example
+      branch: blueprint
       dockerfile: Dockerfile
       context: .
     ingress:
