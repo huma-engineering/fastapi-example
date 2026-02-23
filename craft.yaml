@@ -1,3 +1,8 @@
+on:
+  push:
+    branches:
+      - blueprint
+
 workspace:
   id: 47
   name: cli-test
