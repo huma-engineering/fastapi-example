@@ -1,19 +1,33 @@
 on:
   push:
     branches:
-      - blueprint
+      - openclaw
 
 workspace:
   id: 2
   name: production-test
+  project: openclaw
+
 services:
-  - name: fastapi-example
+  - name: gateway
     type: container
     build:
       repo: https://github.com/huma-engineering/fastapi-example
-      branch: blueprint
+      branch: openclaw
       dockerfile: Dockerfile
       context: .
+    replicas: 1
     ingress:
-      host: fastapi-example-xt6my.cloud.huma.com
-      port: 8000
+      host: openclaw.cloud.huma.com
+      paths: ["/"]
+      port: 18789
+      ipAllowList:
+        - source: 79.173.128.242/32
+          description: "London Office"
+    command:
+      start: /entrypoint.sh
+    envs:
+      - type: secret
+        name: openclaw-secrets
+      - type: configmap
+        name: openclaw-custom
